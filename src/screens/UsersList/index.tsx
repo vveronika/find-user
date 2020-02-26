@@ -21,9 +21,7 @@ const UsersList = (props: Props) => {
   const { fetchUsers } = props;
 
   useMemo(() => {
-    setTimeout(() => {
-      fetchUsers();
-    }, 200);
+    fetchUsers();
   }, [fetchUsers]);
 
   useEffect(() => {
