@@ -1,5 +1,5 @@
 import React from "react";
-import { ListWrapper } from "./styles";
+import { ListWrapper } from "./ItemsList.styled";
 import ListItem from "../ListItem";
 import { User } from "../../models/user";
 

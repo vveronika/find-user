@@ -1,5 +1,5 @@
 import React from "react";
-import { ItemWrapper, OrderNumber, Title, Subtitle } from "./styles";
+import { ItemWrapper, OrderNumber, Title, Subtitle } from "./ListItem.styled";
 
 interface Props {
   orderNumber: number;

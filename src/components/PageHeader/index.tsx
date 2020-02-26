@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderWrapper, Title } from "./styles";
+import { HeaderWrapper, Title } from "./PageHeader.styled";
 
 interface Props {
   title: string;

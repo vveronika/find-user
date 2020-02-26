@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "./styles";
+import { Input } from "./PrimaryInput.styled";
 
 interface Props {
   value: string;

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { connect } from "react-redux";
 import PrimaryInput from "../../components/PrimaryInput";
 import ItemsList from "../../components/ItemsList";
 import { User } from "../../models/user";
-import { UsersListWrapper } from "./styles";
+import { UsersListWrapper } from "./UsersList.styled";
 import PageHeader from "../../components/PageHeader";
-import NothingFound from "../../components/NothingFound";
+import InfoMessage from "../../components/InfoMessage";
 import { RootState } from "../../models/rootState";
 import { fetchUsers } from "../../redux/actions";
 
@@ -16,12 +16,21 @@ interface Props {
 
 const UsersList = (props: Props) => {
   const [queryString, onQueryChange] = useState("");
+  const [loading, onLoaded] = useState(true);
 
-  const {fetchUsers} = props;
+  const { fetchUsers } = props;
+
+  useMemo(() => {
+    setTimeout(() => {
+      fetchUsers();
+    }, 200);
+  }, [fetchUsers]);
 
   useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
+    if (props.users.length > 0) {
+      onLoaded(false);
+    }
+  }, [props.users.length]);
 
   const updateSearch = (e: React.FormEvent<HTMLInputElement>) => {
     onQueryChange(e.currentTarget.value);
@@ -39,9 +48,10 @@ const UsersList = (props: Props) => {
         onChange={updateSearch}
         placeholder="Search by user name..."
       />
+      {loading && <InfoMessage title="Loading users..." />}
       {filteredUsers.length > 0 && <ItemsList items={filteredUsers} />}
-      {filteredUsers.length === 0 && (
-        <NothingFound title="No users found, try again!" />
+      {filteredUsers.length === 0 && !loading && (
+        <InfoMessage title="No users found, try again!" />
       )}
     </UsersListWrapper>
   );

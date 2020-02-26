@@ -1,4 +1,5 @@
 {
+  "homepage": "https://vveronika.github.io/find-user",
   "name": "find-user",
   "version": "0.1.0",
   "private": true,
@@ -17,19 +18,22 @@
     "@types/react": "^16.9.22",
     "@types/react-dom": "^16.9.5",
     "@types/react-redux": "^7.1.6",
+    "gh-pages": "^2.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-redux": "^7.1.0",
     "react-scripts": "3.4.0",
-    "styled-components": "^5.0.1",
-    "redux-thunk": "^2.3.0",
     "redux": "^4.0.4",
-    "react-redux": "^7.1.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

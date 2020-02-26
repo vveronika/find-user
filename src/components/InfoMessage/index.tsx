@@ -1,11 +1,11 @@
 import React from "react";
-import { InfoBox, Title } from "./styles";
+import { InfoBox, Title } from "./InfoMessage.styled";
 
 interface Props {
   title: string;
 }
 
-const NothingFound = (props: Props) => {
+const InfoMessage = (props: Props) => {
   return (
     <InfoBox>
       <Title>{props.title}</Title>
@@ -13,4 +13,4 @@ const NothingFound = (props: Props) => {
   );
 };
 
-export default NothingFound;
+export default InfoMessage;
